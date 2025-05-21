@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Flip Card</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f4f4f4;
+      margin: 0;
+    }
+
+    .card-container {
+      perspective: 1000px; /* Add perspective to the container for 3D effect */
+    }
+
+    .flip-card {
+      width: 300px;
+      height: 400px;
+      transform-style: preserve-3d; /* Allow 3D transformations */
+      transition: transform 0.6s;
+      cursor: pointer;
+    }
+
+    .flip-card:hover {
+      transform: rotateY(180deg); /* Flip the card on hover */
+    }
+
+    /* Front face of the card */
+    .flip-card .front {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden; /* Hide the back face when flipped */
+      background-color: #4CAF50;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      border-radius: 10px;
+    }
+
+    /* Back face of the card */
+    .flip-card .back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      background-color: #333;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+      transform: rotateY(180deg); /* Initially rotate the back face */
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card-container">
+    <div class="flip-card">
+      <div class="front">
+        Front Face
+      </div>
+      <div class="back">
+        Back Face
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

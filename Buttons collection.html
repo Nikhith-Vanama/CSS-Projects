@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Buttons Collection</title>
+  <style>
+    body {
+      background: #f0f2f5;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+      gap: 20px;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    /* Flat Button */
+    .btn-flat {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+    }
+    .btn-flat:hover {
+      background-color: #45a049;
+    }
+    .btn-flat:active {
+      transform: scale(0.95);
+    }
+
+    /* Outline Button */
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #4CAF50;
+      color: #4CAF50;
+    }
+    .btn-outline:hover {
+      background-color: #4CAF50;
+      color: white;
+    }
+    .btn-outline:active {
+      transform: scale(0.95);
+    }
+
+    /* Gradient Button */
+    .btn-gradient {
+      background: linear-gradient(45deg, #ff6b6b, #f06595);
+      border: none;
+      color: white;
+    }
+    .btn-gradient:hover {
+      opacity: 0.9;
+    }
+    .btn-gradient:active {
+      transform: scale(0.95);
+    }
+
+    /* Ghost Button */
+    .btn-ghost {
+      background: transparent;
+      color: #333;
+      border: none;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-ghost::after {
+      content: "";
+      background: rgba(0, 0, 0, 0.1);
+      position: absolute;
+      top: 0; left: 0;
+      width: 0;
+      height: 100%;
+      transition: width 0.3s;
+      z-index: -1;
+    }
+    .btn-ghost:hover::after {
+      width: 100%;
+    }
+    .btn-ghost:active {
+      transform: scale(0.95);
+    }
+  </style>
+</head>
+<body>
+
+<button class="btn-flat">Flat Button</button>
+<button class="btn-outline">Outline Button</button>
+<button class="btn-gradient">Gradient Button</button>
+<button class="btn-ghost">Ghost Button</button>
+
+</body>
+</html>

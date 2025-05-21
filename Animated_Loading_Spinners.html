@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSS Loading Spinners</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 40px;
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 60px;
+    }
+
+    /* Spinner 1: Spinning Circle */
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid #ccc;
+      border-top: 5px solid #4CAF50;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Spinner 2: Bouncing Dots */
+    .bouncing-dots {
+      display: flex;
+      gap: 10px;
+    }
+
+    .bouncing-dots div {
+      width: 15px;
+      height: 15px;
+      background: #4CAF50;
+      border-radius: 50%;
+      animation: bounce 0.6s infinite alternate;
+    }
+
+    .bouncing-dots div:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .bouncing-dots div:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes bounce {
+      from { transform: translateY(0); }
+      to { transform: translateY(-20px); }
+    }
+
+    /* Spinner 3: Growing Circle */
+    .growing-circle {
+      width: 20px;
+      height: 20px;
+      background: #4CAF50;
+      border-radius: 50%;
+      animation: grow 1s ease-in-out infinite;
+    }
+
+    @keyframes grow {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.5); opacity: 0.5; }
+    }
+  </style>
+</head>
+<body>
+
+<h2>Spinning Circle</h2>
+<div class="spinner"></div>
+
+<h2>Bouncing Dots</h2>
+<div class="bouncing-dots">
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+
+<h2>Growing Circle</h2>
+<div class="growing-circle"></div>
+
+</body>
+</html>
