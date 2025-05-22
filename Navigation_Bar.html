@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Responsive Navbar</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Navbar Container */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #333;
+      padding: 10px 20px;
+    }
+
+    .navbar .logo {
+      color: white;
+      font-size: 22px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    /* Nav Links */
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar ul li {
+      margin-left: 20px;
+    }
+
+    .navbar ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      padding: 8px 12px;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+
+    .navbar ul li a:hover {
+      background-color: #575757;
+    }
+
+    /* Hamburger Icon */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .menu-toggle div {
+      width: 25px;
+      height: 3px;
+      background: white;
+      margin: 5px;
+      transition: all 0.3s;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .navbar ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #333;
+      }
+
+      .navbar ul.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .navbar ul li {
+        text-align: center;
+        margin: 10px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="#" class="logo">MySite</a>
+  <div class="menu-toggle" id="menu-toggle">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <ul id="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Portfolio</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const navLinks = document.getElementById('nav-links');
+
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+</script>
+
+</body>
+</html>

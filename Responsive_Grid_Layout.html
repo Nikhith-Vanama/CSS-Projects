@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Responsive Grid Layout</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .grid-item {
+      background: white;
+      padding: 40px 20px;
+      text-align: center;
+      border-radius: 10px;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .grid-item:hover {
+      transform: translateY(-5px);
+    }
+  </style>
+</head>
+<body>
+
+<h1 style="text-align:center;">Responsive Grid Layout</h1>
+
+<div class="grid-container">
+  <div class="grid-item">Item 1</div>
+  <div class="grid-item">Item 2</div>
+  <div class="grid-item">Item 3</div>
+  <div class="grid-item">Item 4</div>
+  <div class="grid-item">Item 5</div>
+  <div class="grid-item">Item 6</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Profile Card</title>
+  <style>
+    body {
+      background-color: #f0f2f5;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .card {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      width: 300px;
+      text-align: center;
+      padding: 30px 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    .avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      margin: 10px 0 5px;
+      font-size: 24px;
+      color: #333;
+    }
+
+    p {
+      color: #777;
+      font-size: 14px;
+      padding: 0 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+  <img src="https://via.placeholder.com/100" alt="Profile Picture" class="avatar">
+  <h2>John Doe</h2>
+  <p>Web Developer | Tech Enthusiast | Coffee Lover</p>
+</div>
+
+</body>
+</html>

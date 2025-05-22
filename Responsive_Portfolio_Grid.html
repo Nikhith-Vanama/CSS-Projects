@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Responsive Portfolio Grid</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .portfolio-item {
+      position: relative;
+      background-color: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.3s ease;
+    }
+
+    .portfolio-item:hover img {
+      opacity: 0.7;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-size: 20px;
+      transition: opacity 0.3s ease;
+    }
+
+    .portfolio-item:hover .overlay {
+      opacity: 1;
+    }
+
+    .portfolio-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .filter-buttons {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .filter-buttons button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      margin: 5px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .filter-buttons button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Filter Buttons (Optional JavaScript for filtering) -->
+<div class="filter-buttons">
+  <button onclick="filterItems('all')">All</button>
+  <button onclick="filterItems('web')">Web Design</button>
+  <button onclick="filterItems('graphic')">Graphic Design</button>
+  <button onclick="filterItems('branding')">Branding</button>
+</div>
+
+<!-- Portfolio Grid -->
+<div class="container">
+  <div class="portfolio-item web">
+    <img src="https://via.placeholder.com/400x300" alt="Project 1">
+    <div class="overlay">Web Design Project 1</div>
+  </div>
+  <div class="portfolio-item graphic">
+    <img src="https://via.placeholder.com/400x300" alt="Project 2">
+    <div class="overlay">Graphic Design Project 1</div>
+  </div>
+  <div class="portfolio-item branding">
+    <img src="https://via.placeholder.com/400x300" alt="Project 3">
+    <div class="overlay">Branding Project 1</div>
+  </div>
+  <div class="portfolio-item web">
+    <img src="https://via.placeholder.com/400x300" alt="Project 4">
+    <div class="overlay">Web Design Project 2</div>
+  </div>
+  <div class="portfolio-item graphic">
+    <img src="https://via.placeholder.com/400x300" alt="Project 5">
+    <div class="overlay">Graphic Design Project 2</div>
+  </div>
+  <div class="portfolio-item branding">
+    <img src="https://via.placeholder.com/400x300" alt="Project 6">
+    <div class="overlay">Branding Project 2</div>
+  </div>
+</div>
+
+<script>
+  // Optional JavaScript for filtering
+  function filterItems(category) {
+    const items = document.querySelectorAll('.portfolio-item');
+    if (category === 'all') {
+      items.forEach(item => item.style.display = 'block');
+    } else {
+      items.forEach(item => {
+        if (item.classList.contains(category)) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+  }
+</script>
+
+</body>
+</html>

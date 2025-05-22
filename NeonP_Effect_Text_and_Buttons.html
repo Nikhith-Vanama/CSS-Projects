@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Neon Effect Text and Buttons</title>
+  <style>
+    /* Global Styles */
+    body {
+      background-color: #111;
+      color: #fff;
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    /* Neon Text Effect */
+    h1 {
+      font-size: 4em;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      animation: neon-text 1.5s ease-in-out infinite alternate;
+    }
+
+    /* Neon Animation for Text */
+    @keyframes neon-text {
+      0% {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff;
+      }
+      100% {
+        text-shadow: 0 0 10px #fff, 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff, 0 0 50px #ff00ff, 0 0 60px #ff00ff;
+      }
+    }
+
+    /* Neon Button Effect */
+    .neon-button {
+      padding: 15px 30px;
+      font-size: 18px;
+      background-color: transparent;
+      border: 2px solid #ff00ff;
+      color: #ff00ff;
+      text-transform: uppercase;
+      cursor: pointer;
+      outline: none;
+      border-radius: 5px;
+      letter-spacing: 2px;
+      transition: all 0.3s ease;
+      animation: neon-button 1.5s ease-in-out infinite alternate;
+    }
+
+    /* Neon Animation for Button */
+    @keyframes neon-button {
+      0% {
+        box-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff;
+        color: #ff00ff;
+      }
+      100% {
+        box-shadow: 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff;
+        color: #fff;
+      }
+    }
+
+    /* Button Hover Effect */
+    .neon-button:hover {
+      background-color: #ff00ff;
+      color: #111;
+    }
+  </style>
+</head>
+<body>
+
+  <div>
+    <h1>Neon Glow Effect</h1>
+    <button class="neon-button">Click Me</button>
+  </div>
+
+</body>
+</html>
