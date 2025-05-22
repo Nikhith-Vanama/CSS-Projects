@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Timeline</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      height: 100vh;
+    }
+
+    .timeline-container {
+      width: 80%;
+      max-width: 900px;
+      margin-top: 50px;
+      padding: 20px;
+    }
+
+    /* Timeline Styles */
+    .timeline {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      height: 100%;
+      border-left: 2px solid #bbb;
+      width: 0;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin: 30px 0;
+      opacity: 0;
+      transform: translateX(-50px); /* Initially off-screen */
+      transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+
+    /* Timeline Item Styling */
+    .timeline-item:nth-child(even) {
+      left: 50%;
+      transform: translateX(50px); /* Position even items on the right */
+    }
+
+    .timeline-item:nth-child(odd) {
+      left: 0;
+      transform: translateX(-50px); /* Position odd items on the left */
+    }
+
+    .timeline-item .content {
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      width: 220px;
+    }
+
+    .timeline-item .content h3 {
+      margin-top: 0;
+      font-size: 1.5em;
+      color: #333;
+    }
+
+    .timeline-item .content p {
+      font-size: 1em;
+      color: #555;
+    }
+
+    /* Scroll Effect */
+    .timeline-item.visible {
+      opacity: 1;
+      transform: translateX(0); /* Reset position to reveal */
+    }
+
+    /* Optional: Add style for the date on the timeline */
+    .timeline-item .date {
+      font-size: 0.9em;
+      color: #888;
+      position: absolute;
+      top: 0;
+      right: -60px;
+    }
+
+    /* Optional: Add a little icon to represent each event */
+    .timeline-item::before {
+      content: "▶";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 30px;
+      font-size: 1.5em;
+      color: #ff5722;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="timeline-container">
+    <ul class="timeline">
+      <li class="timeline-item">
+        <div class="content">
+          <h3>Event 1</h3>
+          <p>Description of event 1. This is the first milestone in the timeline.</p>
+          <div class="date">Jan 2023</div>
+        </div>
+      </li>
+      <li class="timeline-item">
+        <div class="content">
+          <h3>Event 2</h3>
+          <p>Description of event 2. This is the second milestone in the timeline.</p>
+          <div class="date">Feb 2023</div>
+        </div>
+      </li>
+      <li class="timeline-item">
+        <div class="content">
+          <h3>Event 3</h3>
+          <p>Description of event 3. This is the third milestone in the timeline.</p>
+          <div class="date">Mar 2023</div>
+        </div>
+      </li>
+      <li class="timeline-item">
+        <div class="content">
+          <h3>Event 4</h3>
+          <p>Description of event 4. This is the fourth milestone in the timeline.</p>
+          <div class="date">Apr 2023</div>
+        </div>
+      </li>
+      <li class="timeline-item">
+        <div class="content">
+          <h3>Event 5</h3>
+          <p>Description of event 5. This is the fifth milestone in the timeline.</p>
+          <div class="date">May 2023</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    // Adding scroll effect using JS
+    const timelineItems = document.querySelectorAll('.timeline-item');
+
+    const checkVisibility = () => {
+      const triggerBottom = window.innerHeight * 0.8;
+
+      timelineItems.forEach(item => {
+        const itemTop = item.getBoundingClientRect().top;
+
+        if (itemTop < triggerBottom) {
+          item.classList.add('visible');
+        } else {
+          item.classList.remove('visible');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', checkVisibility);
+    checkVisibility(); // Initial check
+  </script>
+
+</body>
+</html>

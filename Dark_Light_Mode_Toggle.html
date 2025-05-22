@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dark/Light Mode Toggle</title>
+  <style>
+    /* Define light and dark theme custom properties */
+    :root {
+      --color-bg-light: #f0f0f0;
+      --color-bg-dark: #121212;
+      --color-text-light: #333;
+      --color-text-dark: #fff;
+      --color-primary-light: #4CAF50;
+      --color-primary-dark: #00796b;
+      --transition-speed: 0.3s;
+    }
+
+    /* Global Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      transition: background-color var(--transition-speed), color var(--transition-speed);
+    }
+
+    /* Light Theme */
+    body.light-mode {
+      background-color: var(--color-bg-light);
+      color: var(--color-text-light);
+    }
+
+    /* Dark Theme */
+    body.dark-mode {
+      background-color: var(--color-bg-dark);
+      color: var(--color-text-dark);
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    .theme-toggle {
+      background-color: var(--color-primary-light);
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      color: #fff;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color var(--transition-speed);
+    }
+
+    /* Dark Mode button */
+    body.dark-mode .theme-toggle {
+      background-color: var(--color-primary-dark);
+    }
+
+    /* Toggle Button Hover Effects */
+    .theme-toggle:hover {
+      background-color: #45a049;
+    }
+
+    .theme-toggle:active {
+      background-color: #388e3c;
+    }
+
+  </style>
+</head>
+<body class="light-mode">
+
+<div class="container">
+  <button class="theme-toggle" onclick="toggleTheme()">Switch to Dark Mode</button>
+</div>
+
+<script>
+  // Function to toggle between dark and light mode
+  function toggleTheme() {
+    const body = document.body;
+    const button = document.querySelector('.theme-toggle');
+
+    // Toggle the 'dark-mode' class on the body
+    body.classList.toggle('dark-mode');
+    body.classList.toggle('light-mode');
+
+    // Update button text based on the theme
+    if (body.classList.contains('dark-mode')) {
+      button.textContent = 'Switch to Light Mode';
+    } else {
+      button.textContent = 'Switch to Dark Mode';
+    }
+  }
+</script>
+
+</body>
+</html>
